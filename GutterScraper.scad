@@ -1,26 +1,38 @@
 include <threads.scad>
 
+// This pole attachment makes it a little easier to scrape gutters you can't otherwise reach.
+
 // Number of tines around full perimeter before halving
 number_of_tines = 10;
 // Height of the whole attachment
+// - Raise this to make the interior angle printable
 attachment_height = 80;
 // Radius of the whole attachment
+// - Size to your gutter
 attachment_width = 70;
 // Depth of the tine extending from the cone
+// - Increase to extend how much you can scrape up without breaking the tips off
 tine_depth = 10;
 // Thickness of the tine tip
+// - Increase to make tines stronger if they brake off with scraping
 tine_thickness = 3;
 // Width of chamfer on tines
+// - Size to adjust the pointiness of the tips
 tine_chamfer = 30;
 // Width of cutout between tines
+// - Size to adjust strength of the tines
 tine_seperation = 5;
 // How offcenter the pole is to the main cone
+// - Size to fit your gutter and ensure the last tines get cut off in a reasonable spot
 pole_offset = 10;
 // Radius of pole attachment
+// - Increase to strengthen pole attachment
 pole_thickness = 17;
 // Length of pole threads
+// - Fit to the thread length on your pole
 thread_length_in = .75;
 // Height of tine support cone
+// - Derived - adjust other parameters until printable without supports
 support_height = attachment_height - thread_length_in * 27;
 
 module pole_thread() {
