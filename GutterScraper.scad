@@ -9,25 +9,25 @@ number_of_tines = 10;
 attachment_height = 80;
 // Radius of the whole attachment
 // - Size to your gutter
-attachment_width = 70;
+attachment_width = 50;
 // Depth of the tine extending from the cone
 // - Increase to extend how much you can scrape up without breaking the tips off
 tine_depth = 10;
 // Thickness of the tine tip
 // - Increase to make tines stronger if they brake off with scraping
-tine_thickness = 3;
+tine_thickness = 6;
 // Width of chamfer on tines
 // - Size to adjust the pointiness of the tips
-tine_chamfer = 30;
+tine_chamfer = 20;
 // Width of cutout between tines
 // - Size to adjust strength of the tines
 tine_seperation = 5;
 // How offcenter the pole is to the main cone
 // - Size to fit your gutter and ensure the last tines get cut off in a reasonable spot
-pole_offset = 10;
+pole_offset = 12;
 // Radius of pole attachment
 // - Increase to strengthen pole attachment
-pole_thickness = 17;
+pole_thickness = 19;
 // Length of pole threads
 // - Fit to the thread length on your pole
 thread_length_in = .75;
@@ -66,7 +66,7 @@ difference() {
         pole_thread();
     }
     // Inner Cone
-    cylinder(support_height-10,r1=attachment_width-tine_depth-1,r2=0,center=false);
+    cylinder(support_height-10,r1=attachment_width-tine_depth-tine_thickness,r2=0,center=false);
     // Tines
     for (i = [0 : number_of_tines]) {
         rotate([0, 0, i * (360 / number_of_tines)]) {
